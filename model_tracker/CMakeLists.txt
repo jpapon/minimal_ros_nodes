@@ -19,7 +19,7 @@ find_package(catkin REQUIRED COMPONENTS
 #  Release        : w/o debug symbols, w/ optimization
 #  RelWithDebInfo : w/ debug symbols, w/ optimization
 #  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
-set(ROS_BUILD_TYPE Debug)
+set(ROS_BUILD_TYPE RelWithDebInfo)
 
 link_directories(${catkin_LIBRARY_DIRS})
 
