@@ -1,0 +1,13 @@
+<launch>
+  <node pkg="model_tracker" name="model_tracker" type="model_tracker_norecog" output="screen">
+    <param name="source_topic" value="/sensors/cameras/masthead/binned/points2"/>
+    <param name ="write_to_file" value="false"/>
+    <param name="voxel_resolution" value="0.01" />
+    <param name="ground_threshold" value="0.015" />
+    <param name="visualization" value="true" />
+    <param name="frame_rate" value="10" />
+    <param name="num_samples" value="30" />
+    <param name="num_particles" value="300" />
+    <param name="number_of_threads" value="4" />
+  </node>
+</launch>
