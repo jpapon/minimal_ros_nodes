@@ -1,0 +1,23 @@
+<package format="2">
+  <name>cnn_classifier</name>
+  <version>0.0.1</version>
+  <description>
+
+    Classifier which uses a deep-CNN for terrain classification.
+
+  </description>
+  <author email="papon@jpl.nasa.gov">Jeremie PApon</author>
+  <maintainer email="josh.zapf@navy.mil">Josh Zapf</maintainer>
+  <license>U.S. Navy</license>
+  <url></url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+
+</package>

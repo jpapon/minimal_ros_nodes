@@ -1,0 +1,37 @@
+<launch>
+  
+  <node pkg="cnn_classifier" type="cnn_classifier.py" name="cnn_classifier" output="screen">
+    <remap from="image" to="/sensor_processing/sensors/cameras/color/left/image_raw"/>
+    <param name="save_output" value="true"/>
+  </node>
+  
+  <node name="RGB_Labels" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="rgb_labels" />
+  </node>
+  
+  <node name="Labels" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="labels" />
+  </node>
+
+  <!-- PARAMETERS /-->
+  <arg name="use_sim_time" default="true" />
+  <arg name="replace_ci" default="false" />
+
+  <!-- End of User Options -->
+
+  <group if="$(arg use_sim_time)">
+    <arg name="playback_path" default="/media/ssd0/sensor_fusion/barracks_2016-11-21/"/>
+    <arg name="playback_rate" default="0.1"/>
+    <arg name="playback_start" default="0.0"/>
+    <arg name="playback_bag" default="*.bag"/>
+
+    <node pkg="playback_multiple_bags" type="playback_bags.py" name="playbackbags" output="screen" launch-prefix="xterm -e">
+      <param name="playback_path" value="$(arg playback_path)"/>
+      <param name="playback_bag" value="$(arg playback_bag)"/>
+      <param name="rate" value="$(arg playback_rate)"/>
+      <param name="start" value="$(arg playback_start)"/>
+      <param name="replace_ci" value="$(arg replace_ci)"/>
+    </node>
+  </group>
+
+</launch>
